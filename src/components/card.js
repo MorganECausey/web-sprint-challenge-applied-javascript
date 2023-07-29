@@ -17,6 +17,8 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+
 }
 
 const cardAppender = (selector) => {
@@ -28,6 +30,8 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
+  
 }
 
 export { Card, cardAppender }
