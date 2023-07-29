@@ -46,7 +46,7 @@ const headerAppender = (selector) => {
   // so all that you need to do is pass it into the querySelector method
   // for the tests to work!
 
-
+document.querySelector(selector).appendChild(Header("Morgan", "July 28, 2023", "95"))
 }
 
 export { Header, headerAppender }
