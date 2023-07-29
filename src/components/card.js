@@ -17,7 +17,14 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
-
+const articleHeadline = article.Headline;
+const authorPhoto = article.authorPhoto;
+const authorName = article.authorName;
+let mainCard = document.createElement('div');
+mainCard.classList.add('card');
+mainCard.addEventListener('click', () => {
+  console.log('headline');
+});
 
 }
 
@@ -31,7 +38,7 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
 
-  
+
 }
 
 export { Card, cardAppender }

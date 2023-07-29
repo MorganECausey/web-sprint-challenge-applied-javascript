@@ -14,7 +14,18 @@ const Tabs = (topics) => {
   // </div>
   //
 
+const mainTopics = document.createElement('div');
+mainTopics.classList.add('topics');
 
+topics.forEach(element => {
+  const tabCards = document.createElement('div');
+  tabCards.classList.add('tab');
+  tabCards.textContent = element;
+  mainTopics.appendChild(tabCards);
+
+});
+
+return mainTopics;
 }
 
 const tabsAppender = (selector) => {
@@ -26,7 +37,7 @@ const tabsAppender = (selector) => {
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
 
-  
+
 }
 
 export { Tabs, tabsAppender }
