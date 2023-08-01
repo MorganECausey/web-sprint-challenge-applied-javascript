@@ -1,4 +1,35 @@
+import axios from "axios";
 const Card = (article) => {
+const cardDiv = document.createElement("div");
+const headlineElement = document.createElement("div");
+const authorDiv = document.createElement("div");
+const imgContainer = document.createElement("div");
+const authorPhoto = document.createElement("img");
+const authorName = document.createElement("span");
+
+cardDiv.classList.add("card");
+headlineElement.classList.add("headline");
+authorDiv.classList.add("author");
+imgContainer.classList.add("img-container");
+
+cardDiv.appendChild(headlineElement);
+authorDiv.appendChild(imgContainer);
+authorDiv.appendChild(authorPhoto);
+authorDiv.appendChild(authorName);
+imgContainer.appendChild(authorPhoto);
+cardDiv.appendChild(authorDiv);
+
+cardDiv.addEventListener("click", () => {
+  console.log(headlineElement);
+})
+
+headlineElement.textContent = article.headline;
+authorName.textContent = `By ${article.authorName}`;
+
+authorPhoto.src = article.authorPhoto;
+
+return cardDiv;
+}
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -17,38 +48,10 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
-const articleHeadline = article.Headline;
-const authorPhoto = article.authorPhoto;
-const authorName = article.authorName;
-let mainCard = document.createElement('div');
-mainCard.classList.add('card');
-mainCard.addEventListener('click', () => {
-  console.log('headline');
-});
+  
 
-let cardHeadline = document.createElement('div');
-cardHeadline.classList.add('headline');
-cardHeadline.textContent = article.headline;
-mainCard.appendChild(cardHeadline);
 
-let cardAuthor = document.createElement('div');
-cardAuthor.classList.add('author');
-cardAppender.appendChild(cardAuthor);
 
-let cardImgDiv = document.createElement('div');
-cardImgDiv.classList.add('img-div');
-cardAuthor.appendChild(cardImgDiv);
-
-let imgCard = document.createElement('img');
-imgCard.src = authorPhoto;
-cardImgDiv.appendChild(imgCard);
-
-let spanCard = document.createElement('span');
-spanCard.textContent = `Written by ${author}`;
-cardAuthor.appendChild(spanCard);
-
-return mainCard;
-}
 
 const cardAppender = (selector) => {
   // TASK 6
@@ -65,12 +68,16 @@ axios.get( "http://localhost:5001/api/articles" )
 
 .then(response => {
   const resp = response.data.articles
+  const currentArray = []
+  currentArray.push(info.data.articles.javascript,info.data.articles.bootstrap,info.data.articles.technology,info.data.articles.jquery,info.data.articles.node)
 
-  Object.keys(object).forEach(key => object[key].forEach(item => document.querySelector(selector).appendChild(Card(item))));
-
-})
-.catch(err => {
-  console.error(err);
+  function updateArticle (currentArray){
+  for (let i = 0; i < currentArray.length; i++) {
+    select.appendChild(Card(currentArray[i]))
+  }
+}
+currentArray.forEach(x =>
+  updateArticle(x));
 })
 }
 
