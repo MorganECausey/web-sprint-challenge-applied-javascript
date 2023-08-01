@@ -67,9 +67,8 @@ const select = document.querySelector(selector)
 axios.get( "http://localhost:5001/api/articles" )
 
 .then(response => {
-  const resp = response.data.articles
   const currentArray = []
-  currentArray.push(info.data.articles.javascript,info.data.articles.bootstrap,info.data.articles.technology,info.data.articles.jquery,info.data.articles.node)
+  currentArray.push(response.data.articles.javascript,response.data.articles.bootstrap,response.data.articles.technology,response.data.articles.jquery,response.data.articles.node)
 
   function updateArticle (currentArray){
   for (let i = 0; i < currentArray.length; i++) {
